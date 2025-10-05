@@ -4,4 +4,4 @@ admin:
   userKey: admin-user
   passwordKey: admin-password
 
-replicas: 1
+replicas: 2

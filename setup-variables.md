@@ -12,3 +12,6 @@ path  to var has to be full from yaml
 - kubectl delete secret custom-grafana-credentials
 add files to install
 - helm install my-grafana grafana/grafana -f values/custom-values.yaml
+
+update
+- helm upgrade my-grafana grafana/grafana --version 10.0.0 --reuse-values --values values/custom-values.yaml
