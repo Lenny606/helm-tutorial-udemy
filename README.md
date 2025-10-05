@@ -29,6 +29,7 @@ add from artifact hub
 - kubectl get deploy
 - kubectl get svc #services
 - kubectl get pv,pvc #volumes
+- kubectl logs <podname>
 - kubectl describe pod <podname>
 - kubectl describe secret <podname>
 - kubectl expose deploy my-grafana --name=grafana-svc --type=NodePort
