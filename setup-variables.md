@@ -15,7 +15,11 @@ add files to install
 
 update
 - helm upgrade my-grafana grafana/grafana --version 10.0.0 --reuse-values --values values/custom-values.yaml
+flags
+- helm upgrade my-grafana grafana/grafana --version 10.0.0 --reuse-values --values values/custom-values.yaml \
+--atomic --cleanup-on-fail --debug -timeout 2m
 
 rollback
 - helm history <releaseName> 
 - helm rollback my-grafana <revNumber>
+

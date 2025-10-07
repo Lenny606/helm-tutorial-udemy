@@ -5,3 +5,6 @@ admin:
   passwordKey: admin-password
 
 replicas: 2
+
+service:
+  type: NodePort
