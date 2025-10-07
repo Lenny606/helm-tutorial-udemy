@@ -25,8 +25,9 @@ add from artifact hub
 
 #kubectl
 - kubectl get pod
-- kubectl get secret
+- kubectl get secret ( kubectl get secret custom-grafana-credentials -o jsonpath='{.data.password}' | base64 --decode)
 - kubectl get deploy
+- kubectl get rs # replica sets
 - kubectl get svc #services
 - kubectl get pv,pvc #volumes
 - kubectl logs <podname>
@@ -35,6 +36,7 @@ add from artifact hub
 - kubectl expose deploy my-grafana --name=grafana-svc --type=NodePort
 - kubectl delete svc grafana-svc #has to be done manually
 - kubectl delete pvc <volumename> #volumes has to be done manually
+- kubectl delete rs <replicasetName>
 
 get secret (get value in bytes, has parsed + decoded)
 - kubectl get secret my-grafana -o jsonpath='{.data.admin-password}' | base64 -d
