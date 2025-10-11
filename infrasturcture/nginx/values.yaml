@@ -1,0 +1,12 @@
+environment: prod
+replicaCount: 1
+image:
+  name: nginx
+  tag: "1.27.0"
+
+containerPort:
+  http: 80
+
+service:
+  type: ClusterIP
+  port: 80
