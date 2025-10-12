@@ -10,3 +10,4 @@ containerPort:
 service:
   type: ClusterIP
   port: 80
+  enabled: true
