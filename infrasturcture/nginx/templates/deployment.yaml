@@ -4,9 +4,11 @@ kind: Deployment
 {{/*GO comment , trims white space before -  */ -}}
 metadata:
 {{- /* . = current context, top level  */}}
-  name: {{ .Chart.Name }}
+{{- /* Release => unique namespace - set in command helm install local-nginx */}}
+  name: {{ .Release.Name }}-{{ .Chart.Name}} #local-nginx-nginx
   labels:
-    app: nginx
+    app: {{ .Chart.Name}}
+    release: {{ .Release.Name }}
 {{/*  white space  */}}
 spec:
   {{- if eq .Values.environment "prod" }}
@@ -18,10 +20,12 @@ spec:
     {{/*  function <arg1> <arg2>  with PIPE => result is passed to second fnction as arg  */}}
     matchLabels:
       app: {{ replace " " "-" .Chart.Name | lower  }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: nginx #same as matchLabels.app
+        app: {{ .Chart.Name}} #same as matchLabels.app
+        release: {{ .Release.Name }}
     spec:
       containers:
         - name: {{ .Values.image.name }}
